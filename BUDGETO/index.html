@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="budget.js"></script>
+    <script src="test.js"></script>
+    <title>Budgeto</title>
+  </head>
+
+
+
+<body onload="onLoadingAnotherHtml()">
+  <div class="logo">
+  </div>
+  <div class="user-info">
+    <p><span id="user-email"></span></p>
+  </div>
+  <!-- <h1 id="email"></h1> -->
+    <div class="alert">Login Successfully!</div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-11" >
+          <!-- title -->
+          <h2 class="text-uppercase">Budgeto</h2>
+          <a class="a1"  href="to do/note.html">Notes</a>
+           <div class="row1">
+            <div class="col-5">
+        
+            
+         
+
+           <!-- budget form -->
+            <h1 class="heading">Calculate your budget in minutes!</h1>
+             <div class="Circle">
+             <span class="circle1"><a class="one" href="index.html">1</a></span>
+              <span class="circle2"><a class="two" href="expense.html">2</a></span>
+             </div>
+             
+            <h5 class="text-capitalize">
+              Please enter your budget</h5>
+            <div class="form-group">
+              <input
+                type="number"
+                id="budget_input" class="budget-input"
+  
+              />
+            </div>
+
+            
+            <button type="submit"id="budget_submit" class="calculatebutton" onclick="showBudget(Number(document.getElementById('budget_input').value))"><a href="expense.html" class="nextB">Next</a></button>
+            </div>
+
+            <div class="col-md-7">
+            <!-- app info -->
+          
+          <div class="row-my-3">
+                <!-- Budget  chart -->
+              <div class="col-4text">
+         <h6 class="text-uppercase info-title">Budget</h6>
+         <span class="budget-icon"><i class="money-bill"></i></span>
+               <h4 class="mt-2budget" id="budget"><span>₹</span><span id="budget_amount">0</span></h4>
+           </div>
+
+            <!-- expense  chart --> 
+           <div class="col-4text">
+            <h6 class="text-uppercase info-title">Expenses</h6>
+            <span class="expenseicon" ><i class="card"></i></span> 
+            <h4 class="mt-2budget" id="expense"><span>₹</span><span id="expense-amount">0</span></h4>
+            </div>
+
+            <!-- Balance  chart -->
+           
+            <div class="col-4text">
+            <h6 class="info-title">Balance</h6>
+              <span class="Balancce-icon"><i class="rupee-sign"></i></span>
+           <h4 class="mt-2budget" id="balance"><span>₹</span><span id="balance-amount">0</span></h4>
+             </div>
+           
+            </div>
+            </div>
+            </div>
+
+<!-- ------------------------------------------------------------------------------------------------ -->
+
+      
+
+                          <div class="col-md-7">
+              <!-- expense list -->
+              <div class="expense-list" id="expense-list">
+                <div
+                  class="expense-list__info"
+                >
+               
+                  <h5 class="list-item1">Expense title</h5>
+                  <h5 class="list-item2">Expense value</h5>
+                  <h5 class="list-item"></h5> 
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+              </div>
+              <script>
+                // Get the currently logged-in user
+                const user = firebase.auth().currentUser;
+                console.log(firebase.auth().currentUser);
+
+                let userEmail = localStorage.getItem("userEmail");
+                console.log(userEmail);
+                document.getElementById("user-email").innerHTML = userEmail;
+
+                // If the user is logged in, display their email
+                // if (user) {
+                //   let userEmail = localStorage.getItem("usermail");
+                //   console.log(localStorage.getItem("usermail"));
+                //   document.getElementById("user-email").innerHTML = userEmail;
+                // }
+              </script>
+  </body>
+</html>

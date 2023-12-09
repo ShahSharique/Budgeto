@@ -1,0 +1,47 @@
+.head {
+  color: white;
+  background-color: #5e2ca5;
+  padding: 1rem;
+  font-size: 24px;
+  margin-top: -8px;
+}
+
+.heading {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-capitalize {
+  font-size: 24px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mt-2budget {
+  color: #5e2ca5;
+  margin-top: 5px;
+  font-size: 4rem;
+}
+
+#userEmail {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+h2 {
+  font-size: 2.5rem;
+  margin-top: -3rem;
+}
+
+
+.a1 {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+  font-weight: 700;
+}

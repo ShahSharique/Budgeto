@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Balanace.css" />
+    <script src="test.js"></script>
+    <title>Budgeto</title>
+  </head>
+  <body>
+    <div class="user-info">
+      <p><span id="userEmail"></span></p>
+    </div>
+    <div class="row">
+      <div class="col-11">
+        <h2 class="head">Budgeto</h2>
+        <a class="a1" href="to do/note.html">Notes</a>
+        <div class="col-5">
+          <form id="Balance-form" class="Balance-form">
+            <h1 class="heading">Thankyou for your input!</h1>
+            <h3 class="text-capitalize">Your Balance:</h3>
+            <div class="col-4text">
+              <h4 class="mt-2budget" id="budget">
+                <span>₹</span><span id="balance_amount"></span>
+                <div id="myUL" style="display: none"></div>
+                <div id="expense_amount" style="display: none"></div>
+              </h4>
+              <h2>Your Dashboard:</h2>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <canvas id="myChart" style="width: 500px"></canvas>
+  </body>
+  <script src="budget.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script>
+  <script>
+    let spendbalance = document.getElementById("balance_amount").innerText;
+    let total_exp = localStorage.budgetValue;
+    let rem_exp = total_exp - spendbalance;
+    console.log(spendbalance);
+    console.log(total_exp);
+    console.log(rem_exp);
+
+    const ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: ["Remaining", "Budget", "Expense"],
+        datasets: [
+          {
+            data: [spendbalance, total_exp, rem_exp],
+          },
+        ],
+      },
+      options: {
+        responsive: false,
+      },
+    });
+
+    // Get the currently logged-in user
+    const user = firebase.auth().currentUser;
+    console.log(firebase.auth().currentUser);
+
+    let userEmail = localStorage.getItem("userEmail");
+    console.log(userEmail);
+    document.getElementById("userEmail").innerHTML = userEmail;
+  </script>
+</html>

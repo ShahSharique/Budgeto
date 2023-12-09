@@ -1,0 +1,142 @@
+<html lang="en">
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="expense.css">
+    <script src="budget.js"></script>
+    <script src="test.js"></script>
+     
+    <title>Budgeto</title>
+  </head>
+  <body onload="onLoadingAnotherHtml()">
+    <div class="user-info">
+      <p><span id="user-email"></span></p>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-11" >
+          <!-- title -->
+          <h2 class="head">Budgeto</h2>
+           <a class="a1"  href="to do/note.html">Notes</a>
+          <!-- <h4 class="hi">Hey!!!</h4> -->
+           <div class="row1">
+            <div class="col-5">
+              
+            
+         
+
+           <!-- expense form -->
+           <!-- <form id="expense-form" class="expense-form"> -->
+            <h1 class="heading">Calculate your budget in minutes!</h1>
+          
+               <div class="Circle">
+             <span class="circle1"><a class="one" href="index.html">1</a></span>
+              <span class="circle2"><a class="two" href="expense.html">2</a></span>
+             </div>      
+            
+            <h5 class="text-capitalize">Please enter your products here</h5>
+            <div class="form-group">
+              <input type="text" class="expense-input" id="expense-input" />
+            </div>
+            <h5 class="text-capitalize">Please enter amount</h5>
+            <div class="form-group">
+              <input type="number" class="expense-input" id="amount_input"/>
+            </div>
+
+            <!-- submit button -->
+            <button type="submit" class="expense-submit" id="expense_submit" onclick="expenses(Number(document.getElementById('amount_input').value))" onclick="newelement()">
+              Add
+            </button>
+            <button class="Calculate-balance" id="calculate-expense">
+             <a class="Calculate" href="Balance.html"> Show Balance</a>
+            </button>
+            
+        
+            
+           <!-- </form> -->
+            </div>
+
+            <div class="col-md-7">
+            <!-- app info -->
+          
+          <div class="row-my-3">
+                <!-- Budget ka chart -->
+              <div class="col-4text">
+         <h6 class="text-uppercase info-title">Budget</h6>
+         <span class="budget-icon"><i class="money-bill"></i></span>
+               <h4 class="mt-2budget" id="budget"><span>₹</span><span id="budget_amount">0</span></h4>
+           </div>
+
+            <!-- expense ka chart -->
+           <div class="col-4text">
+            <h6 class="text-uppercase info-title">Expenses</h6>
+            <span class="expenseicon" ><i class="card"></i></span> 
+            <h4 class="mt-2budget" id="expense"><span>₹</span><span id="expense_amount">0</span></h4>
+            </div>
+
+            <!-- Balance ka chart -->
+            <div class="col-4text">
+            <h6 class="info-title">Balance</h6>
+              <span class="Balancce-icon"><i class="rupee-sign"></i></span>
+           <h4 class="mt-2budget" id="balance"><span>₹</span><span id="balance_amount">0</span></h4>
+             </div>
+
+            </div>
+            </div>
+            </div>
+
+<!-- ------------------------------------------------------------------------------------------------ -->
+
+      
+
+                          <div class="col-md-7">
+              <!-- expense list -->
+              <div class="expense-list" id="expense-list">
+                <div
+                  class="expense-list__info "
+                >
+                
+                  <!-- <h5 class="list-item1">Expense title</h5>
+                  <h5 class="list-item2">Expense value</h5> -->
+                <!-- d-flex justify-content-between text-capitalize -->
+                  <!-- <h5 class="list-item1">Expense title</h5>
+                  <h5 class="list-item2">Expense value</h5> -->
+                  <!-- <h5 class="list-item"></h5> -->
+                  <ul id="myUL">
+                      <!-- <li></li> -->
+                      <!-- <li class="checked"></li> -->
+                  </ul>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+              </div>
+              <script>
+                // Get the currently logged-in user
+                const user = firebase.auth().currentUser;
+                console.log(firebase.auth().currentUser);
+
+                let userEmail = localStorage.getItem("userEmail");
+                console.log(userEmail);
+                document.getElementById("user-email").innerHTML = userEmail;
+
+                // If the user is logged in, display their email
+                if (user) {
+                  let userEmail = localStorage.getItem("usermail");
+                  console.log(localStorage.getItem("usermail"));
+                  
+                  document.getElementById("user-email").innerHTML = userEmail;
+                }
+              </script>
+    </body>
+</html>
+
+    
+
+
+
